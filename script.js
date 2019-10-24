@@ -1,32 +1,29 @@
-var myData={
-	"video": [{
-		"id": 12312412312,
-		"name": "Ecuaciones Diferenciales",
-		"url": "/video/math/edo/12312412312",
-    "author":{
-    "data": [{
-		"name_author": "Alejandro Morales",
-		"url": "/author/alejandro-morales",
-		"type": "master"
-			}]
-		}
-	}]
-};
+//Use RegEx to validate form
+document.getElementById('submit').addEventListener("click", function(){
 
+  var firstNameInput= document.getElementById('first-name').value;
+  var lastNameInput= document.getElementById('last-name').value;
+  var emailInput= document.getElementById('email').value;
+  var numberInput= document.getElementById('number').value;
 
-  for(var i=0; i<myData.video.length; i++){
-  console.log(myData.video[i]);
+  var textPattern=/^[A-Za-z ]+$/;
+  var numberPattern=/^\d+$/;
+  var emailPattern=/^[A-Za-z0-9._-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}$/;
 
-  console.log(myData.video[i].id);
-  console.log(myData.video[i].name);
-  console.log(myData.video[i].url);
-  console.log(myData.video[i].author);
-
-    for(var j=0; j<myData.video[i].author.data.length; j++){
-      console.log(myData.video[i].author.data[j]);
-
-  console.log(myData.video[i].author.data[j].name_author);
-  console.log(myData.video[i].author.data[j].url);
-  console.log(myData.video[i].author.data[j].type);
-    }
+  if (textPattern.test(firstNameInput)===false){
+    document.getElementById('first-name').style.border="1px solid red";
   }
+
+  if (textPattern.test(lastNameInput)===false){
+    document.getElementById('last-name').style.border="1px solid red";
+  }
+
+  if (numberPattern.test(numberInput)===false){
+    document.getElementById('number').style.border="1px solid red";
+  }
+
+  if (emailPattern.test(emailInput)===false){
+    document.getElementById('email').style.border="1px solid red";
+  }
+
+})
